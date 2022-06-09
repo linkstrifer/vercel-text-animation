@@ -1,0 +1,79 @@
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+label {
+  cursor: pointer;
+  background-color: chartreuse;
+  color: black;
+  padding: 1em;
+  border-radius: 0.5em;
+  font-weight: bold;
+}
+
+input {
+  display: none;
+}
+
+input:checked + div {
+  background-color: black;
+}
+
+input:checked + div span {
+  color: white;
+}
+
+div {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  transition: background-color 250ms ease-in-out;
+  margin: 1em;
+  align-items: center;
+}
+
+/* Here starts the vercel demo */
+
+span {
+  color: black;
+  display: block;
+  font-size: 15vh;
+  font-weight: bold;
+  position: relative;
+  transition: color 250ms ease-in-out;
+}
+
+span::before {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: text 10s infinite alternate calc(var(--delay, 0) * 1s);
+  background-clip: text;
+  background-image: linear-gradient(
+    90deg,
+    var(--start-color),
+    var(--end-color)
+  );
+  content: attr(data-content);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes text {
+  0%,
+  60% {
+    opacity: 0;
+  }
+
+  20%,
+  40% {
+    opacity: 1;
+  }
+}
